@@ -1,0 +1,44 @@
+.container{
+    background-color: #f9f9f9;
+}
+.title{
+    color: #f9c4c4;
+    text-align: center;
+    margin-top: 80px ;
+    margin-bottom: 20px;
+}
+input{
+    width: 100%;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    padding: 5px;
+}
+ul{
+    width: 40%;
+    margin: auto;
+}
+.items{
+    margin-top: 20px;
+    text-align: center;
+    color: rgb(36, 73, 60);
+}
+.li-c{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+button{
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background-color: #fff;
+    border: none;
+    color: rgb(248, 108, 108);
+}
+.li-c:hover button{   
+    opacity: 1;
+    background-color: #ebffe6 ;
+}
+.li-c:hover{
+    background-color: #ebffe6;
+}
