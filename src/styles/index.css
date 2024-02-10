@@ -1,44 +1,73 @@
-.container{
-    background-color: #f9f9f9;
+body{
+    background-image: url(https://img.freepik.com/foto-gratis/concepto-fondo-estudio-fondo-purpura-sitio-estudio-pendiente-ligera-vacia-abstracta-producto-fondo-liso-estudio_1258-63863.jpg?w=2000&t=st=1707581771~exp=1707582371~hmac=a44d86c36942d850024709b66aba1adac113d15d162eb82ef4ad2eb1f4398c28);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cont{
+    background-image: url(https://img.freepik.com/foto-gratis/espacio-diseno-papel-textura-fondo_53876-42312.jpg?w=1800&t=st=1707583130~exp=1707583730~hmac=0eb48cea0b08a010eaefabe713d282ec0e5bfe14847945492880922970667a6f);
+    box-shadow: 0px 0px 20px #fff;
+    padding: 20px;
+    margin: auto;
+    margin-top: 50px;
+    width: 75%;
+
 }
 .title{
-    color: #f9c4c4;
+    color: #000;
     text-align: center;
-    margin-top: 80px ;
-    margin-bottom: 20px;
 }
 input{
     width: 100%;
-    text-align: center;
-    width: 50%;
     margin: auto;
     padding: 5px;
+    background: transparent;
+    color: #000;
+    border: none;
+    border-bottom: solid 2px #000;
+    font-size: x-large;
 }
+
+.custom-input:focus {
+    outline: none; /* Quitamos el contorno predeterminado en algunos navegadores */
+}
+
+.custom-input::placeholder {
+    font-size: x-large; /* Ajusta el tamaño del placeholder según tus preferencias */
+    /* Otros estilos para el placeholder si es necesario */
+}
+
 ul{
-    width: 40%;
+    width: 60%;
     margin: auto;
 }
+
+
 .items{
     margin-top: 20px;
     text-align: center;
-    color: rgb(36, 73, 60);
+    font-size: x-large;
+    color: #000;
 }
 .li-c{
     display: flex;
     justify-content: space-between;
     margin: 5px 0;
+    background-color: transparent;
+    border-bottom: solid 2px #000;
+    font-size: x-large;
 }
-button{
+.confirm-bu{
     opacity: 0;
-    transition: opacity 0.3s ease;
-    background-color: #fff;
+    transition: 0.3s ease;
     border: none;
     color: rgb(248, 108, 108);
 }
-.li-c:hover button{   
+.li-c:hover .confirm-bu{   
     opacity: 1;
-    background-color: #ebffe6 ;
+    background: transparent;
 }
-.li-c:hover{
-    background-color: #ebffe6;
+
+.li-cont{
+ margin-top: 20px;
 }

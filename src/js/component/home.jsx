@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
-//include images into your bundle
-
-//create your first component
 const Home = () => {
 
   const [inputValue, setInputValue] = useState("");
@@ -43,7 +41,7 @@ const Home = () => {
     }
 
     catch (e) {
-
+      console.log("error", e)
     }
 
   }
@@ -62,14 +60,11 @@ const Home = () => {
 
       const transform = await previewResponse.json()
       setTodos(transform)
-
     }
 
     catch (e) {
-
       console.log("error", e)
     }
-
   }
 
   const sendList = async () => {
@@ -96,7 +91,7 @@ const Home = () => {
     }
 
     catch (e) {
-
+      console.log("error", e)
     }
 
   }
@@ -124,44 +119,59 @@ const Home = () => {
 
   }
 
+  const confirmDelete = (index) => {
+    Swal.fire({
+      title: "¿You have completed this task?",
+      showDenyButton: true,
+      confirmButtonText: `Yes, completed`,
+      denyButtonText: `No, not yet`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const updatedTodos = todos.filter((_, currentIndex) => index !== currentIndex);
+        setTodos(updatedTodos);
+      }
+    });
+  };
+
   return (
 
-    <div className="Container">
+    <div className="cont">
 
       <h1 className="title">Todos</h1>
 
-      <ul className="list-group list-group-flush">
+      <div className="bac-list">
 
-        <input
-          type="text"
-          onChange={(e) => setInputValue(e.target.value)}
-          value={inputValue}
-          onKeyDown={(e) => pressEnter(e)}
-          placeholder="What do you need to do?" />
+        <ul className="list-group list-group-flush">
 
-        {todos.map((item, index) => (
+          <input className="custom-input"
+            type="text"
+            onChange={(e) => setInputValue(e.target.value)}
+            value={inputValue}
+            onKeyDown={(e) => pressEnter(e)}
+            placeholder="New task +" />
 
-          <li className="list-group-item li-c" key={index}>
+          {todos.map((item, index) => (
 
-            {item.label}
+            <div className="li-cont">
 
-            <button onClick={() => {
-              const updatedTodos = todos.filter(
-                (_, currentIndex) => index != currentIndex
-              );
+              <li className="list-group-item li-c" key={index}>
 
-              setTodos(updatedTodos);
+                {item.label}
 
-            }}>  <i
-              className="fa-solid fa-trash-can"
-            ></i></button>
+                <button className="confirm-bu" onClick={() => confirmDelete(index)}>
+                  <i class="fa-solid fa-xmark fa-beat fa-xl" style={{ Color: "#ff0000" }}></i>
+                </button>
 
-          </li>
-        ))}
+              </li>
 
-      </ul>
+            </div>
+          ))}
 
-      <div className="items">{todos.length} items left</div>
+        </ul>
+
+      </div>
+
+      <p className="items">Do you have {todos.length} pending tasks</p>
 
     </div>
   );
